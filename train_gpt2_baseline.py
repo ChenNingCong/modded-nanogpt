@@ -724,7 +724,7 @@ if __name__ == "__main__":
             write_model(model, os.path.join(args.output_dir, f"gpt2_{model_size_str}_bf16.bin"), dtype="bfloat16")
             # save x, y, logits, loss, and parameter gradients, for debugging C
             # always store these in fp32 to have an accurate reference (?)
-            write_state(model, x, y, logits, loss, f"gpt2_{model_size_str}_debug_state.bin")
+            write_state(model, x, y, logits, loss,  os.path.join(args.output_dir, f"gpt2_{model_size_str}_debug_state.bin"))
         model.zero_grad()
     # reset the train_loader for the optimization below
     train_loader.reset()
