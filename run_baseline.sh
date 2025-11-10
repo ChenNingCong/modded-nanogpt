@@ -1,0 +1,23 @@
+torchrun --standalone --nproc_per_node=1 train_gpt2_baseline.py \
+    --input_bin "data/fineweb10B/fineweb_train_*.bin" \
+    --input_val_bin "data/fineweb10B/fineweb_val_*.bin" \
+    --output_dir "result/log124M_baseline" \
+    --model "d12" \
+    --batch_size 8 \
+    --sequence_length 1024 \
+    --num_iterations 19560 \
+    --learning_rate 0.0006 \
+    --warmup_iters 700 \
+    --total_batch_size 524288 \
+    --weight_decay 0.1 \
+    --val_loss_every 250 \
+    --overfit_single_batch 0 \
+    --dtype bfloat16 \
+    --compile 0 \
+    --tensorcores 1 \
+    --flash 1 \
+    --sample_every 20000 \
+    --zero_stage 1 \
+    --write_tensors 1 \
+    --run_id gpt2baseline \
+    --project_id moddedgpt

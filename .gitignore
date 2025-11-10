@@ -4,3 +4,7 @@ __pycache__/
 logs/
 .DS_Store
 .vscode
+wandb
+result
+data/fineweb10B
+*.bin
